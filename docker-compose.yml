@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  web:
+    build: ~/Api
+    command: python3 Api.py -h 0.0.0.0
+    volumes:
+      - ~/Api/:/usr/src/app/
+    ports:
+      - 5001:5000
