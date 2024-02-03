@@ -1,0 +1,38 @@
+apiVersion: apps/latest
+kind: Deployment
+metadata:
+    name: Api-deployment
+    namespace: default
+    labels:
+        app: Api
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: Api
+    template:
+        metadata:
+            labels:
+                app: Api
+        spec:
+            containers:
+                - name: Api
+                  image: emineozlem/api:latest
+                  imagePullPolicy: Always
+                  ports:
+                      - containerPort: 5000
+
+---
+apiVersion: latest
+kind: Service
+metadata:
+    name: nobel-api-service
+    namespace: default
+spec:
+    selector:
+        app: Api
+    ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 5000
+    type: LoadBalancer
