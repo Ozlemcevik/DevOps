@@ -20,4 +20,4 @@ COPY . /usr/src/app/
 EXPOSE 5000
 
 # command to run on container start
-CMD ["python", "nobelApi.py"]
+CMD ["python", "Api.py"]
