@@ -6,7 +6,7 @@ metadata:
   labels:
     app: api
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: api
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: emineozlem/api:latest
+          image: emineozlem/api:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

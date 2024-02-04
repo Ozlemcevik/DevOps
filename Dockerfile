@@ -1,5 +1,5 @@
 # pull official base image
-FROM python
+FROM python:3.11.3-slim-buster
 
 # set work directory
 WORKDIR /usr/src/app
@@ -15,3 +15,9 @@ RUN pip3 install -r requirements.txt
 
 # copy project
 COPY . /usr/src/app/
+
+# expose the port the app will run on
+EXPOSE 5000
+
+# command to run on container start
+CMD ["python", "nobelApi.py"]
